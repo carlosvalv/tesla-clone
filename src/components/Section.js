@@ -1,16 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
-function Section({ title, description, leftButtonText, rightButtonText, backgroundImage }) {
+function Section({
+  title,
+  description,
+  leftButtonText,
+  rightButtonText,
+  backgroundImage,
+}) {
   return (
     <Wrapper background={backgroundImage}>
       <ItemText>
         <h1>{title}</h1>
-        <p>{description}</p>
+        {description ? <p>{description}</p> : null}
       </ItemText>
       <ButtonGroup>
         <LeftButton>{leftButtonText}</LeftButton>
-        <RightButton>{rightButtonText}</RightButton>
+        {rightButtonText ? <RightButton>{rightButtonText}</RightButton> : null}
       </ButtonGroup>
     </Wrapper>
   );
@@ -21,7 +27,7 @@ export default Section;
 const Wrapper = styled.section`
   width: 100vw;
   height: 100vh;
-  background: url(${props=>props.background});
+  background: url(${props => props.background});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -38,6 +44,10 @@ const ItemText = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+
+  h1 {
+    font-size: 38px;
+  }
 `;
 
 const ButtonGroup = styled.div`
