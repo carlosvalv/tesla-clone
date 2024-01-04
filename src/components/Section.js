@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-function Section() {
+function Section({ title, description, leftButtonText, rightButtonText, backgroundImage }) {
   return (
-    <Wrapper>
+    <Wrapper background={backgroundImage}>
       <ItemText>
-        <h1>Model S</h1>
-        <p>Schedule a test drive</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </ItemText>
       <ButtonGroup>
-        <LeftButton>Explore inventory</LeftButton>
-        <RightButton>Test Drive</RightButton>
+        <LeftButton>{leftButtonText}</LeftButton>
+        <RightButton>{rightButtonText}</RightButton>
       </ButtonGroup>
     </Wrapper>
   );
@@ -21,7 +21,7 @@ export default Section;
 const Wrapper = styled.section`
   width: 100vw;
   height: 100vh;
-  background: url("/images/model-s.jpg");
+  background: url(${props=>props.background});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
