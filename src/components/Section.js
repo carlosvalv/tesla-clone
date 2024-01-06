@@ -25,7 +25,7 @@ function Section({
 export default Section;
 
 const Wrapper = styled.section`
-  width: 100vw;
+  width: calc(100vw - 10px);
   height: 100vh;
   background: url(${props => props.background});
   background-size: cover;
@@ -36,6 +36,7 @@ const Wrapper = styled.section`
   justify-content: space-between;
   padding-top: 15vh;
   padding-bottom: 5vh;
+  scroll-snap-align: center;
 `;
 
 const ItemText = styled.div`
